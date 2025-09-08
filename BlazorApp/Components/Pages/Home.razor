@@ -1,0 +1,27 @@
+﻿@page "/"
+
+<PageTitle>Home</PageTitle>
+
+<h1>@msgRev(@msg)</h1>
+
+Welcome to your new app.
+
+<Counter IncrementAmount="10" />
+
+@code {
+    private string msg = "Hello World";
+
+    public string msgRev(string input) {
+        if (string.IsNullOrEmpty(input))
+            return input;
+
+        var sb = new System.Text.StringBuilder();
+        char[] inputChars = input.ToCharArray();
+
+        for(int i = inputChars.Length - 1; i >= 0; i--) {
+            sb.Append(inputChars[i]);
+        }
+
+        return sb.ToString();;
+    }
+}
